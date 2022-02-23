@@ -7,20 +7,17 @@ function Sidebar() {
     <div className='Sidebar'>
         <ul className='SidebarList'>
             {SidebarData.map((val,key) => {
-                return <li 
+                return (<li 
                     key={key}
                     className="row"
-                    onClick={()=>
-                        {window.location.pathname = val.link;
-                        }}>
-                    
-                <div>
-                    {val.icon}
-                </div>
-                <div>
-                    {val.title}
-                </div>
-                </li>;
+                    id={window.location.pathname == val.link ? "active":""} 
+                    onClick={() => {
+                        window.location.pathname = val.link;
+                        }}
+                        >
+                        <div id="icon">{val.icon}</div><div id="title">{val.title}</div>
+                    </li>
+                );
             })}
         </ul>
     </div>

@@ -3,6 +3,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import ArchiveIcon from '@mui/icons-material/Archive';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import SettingsIcon from '@mui/icons-material/Settings';
+import AppsIcon from '@mui/icons-material/Apps';
 
 export const SidebarData = [
         {
@@ -12,22 +13,22 @@ export const SidebarData = [
         },
         {
             title: "Apontamentos",
-            icon: <HomeIcon/>,
-            link: "/home"
+            icon: <AppsIcon/>,
+            link: "/apontamentos"
         },
         {
             title: "Arquivados",
             icon: <ArchiveIcon/>,
-            link: "/home"
+            link: "/arquivados"
         },
         {
             title: "Configurações",
             icon: <SettingsIcon />,
-            link: "/home"
+            link: "/configuracoes"
         },
         {
             title: "Logout",
             icon: <ExitToAppIcon />,
-            link: "/home"
+            link: "/Logout"
         },
 ] 
