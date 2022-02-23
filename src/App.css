@@ -8,22 +8,31 @@ body {
 margin: 0;
 padding: 0;
 }
-.Sidebar {
+.Sidebar{
   width: 250px;
   height: 100%;
-  background-color: aliceblue;
   background-color: #353847;
+  left: -100%;
+  transition: 850ms;
+  
+}
+.Sidebar.active{
+  width: 250px;
+  height: 100%;
+  background-color: #353847;
+  transition: 850ms;
+  
 }
 .SidebarList{
   height: auto;
   width: 100%;
   padding: 0;
+  
 }
 
 .SidebarList .row{
 width: 100%;
 height: 40px;
-
 list-style-type: none;  
 margin: 0%;
 display: flex;
@@ -50,6 +59,13 @@ font-family: Arial, Helvetica, sans-serif;
 
 .row #title{
   flex: 80%;
-  
+}
 
+.navbar{
+  background-color: #353847;
+  
+  height: 5%;
+}
+.navbar #icon{
+  color: white;
 }

@@ -9,26 +9,31 @@ export const SidebarData = [
         {
             title: "Home",
             icon: <HomeIcon/>,
-            link: "/home"
+            link: "/",
+            cName: "nav-text"
         },
         {
             title: "Apontamentos",
             icon: <AppsIcon/>,
-            link: "/apontamentos"
+            link: "/apontamentos",
+            cName: "nav-text"
         },
         {
             title: "Arquivados",
             icon: <ArchiveIcon/>,
-            link: "/arquivados"
+            link: "/arquivados",
+            cName: "nav-text"
         },
         {
             title: "Configurações",
             icon: <SettingsIcon />,
-            link: "/configuracoes"
+            link: "/configuracoes",
+            cName: "nav-text"
         },
         {
             title: "Logout",
             icon: <ExitToAppIcon />,
-            link: "/Logout"
+            link: "/logout",
+            cName: "nav-text"
         },
 ] 
