@@ -12,15 +12,23 @@ import Apontamentos from './Pages/Apontamentos';
 
 function App() {
   return (
-    <div className="App">
-    <Router>
-          <Sidebar/>
-          <Routes>
-          <Route path='/' component={Home} />
-          <Route path='/apontamentos' component={Apontamentos} />
-          </Routes>
-    </Router>
-    </div>
+    <>
+      <div className='App'>
+        <Row className='altura'>
+          <Col md={2}>
+            <Sidebar />
+          </Col>
+          <Col md={9}>
+            <Router>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/apontamentos" element={<Apontamentos />} />
+              </Routes>
+            </Router>
+          </Col>
+        </Row>
+      </div>
+    </>
   );
 }
 
