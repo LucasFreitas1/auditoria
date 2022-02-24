@@ -5,12 +5,18 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AppsIcon from '@mui/icons-material/Apps';
 import FactCheckIcon from '@mui/icons-material/FactCheck';
+import CreateIcon from '@mui/icons-material/Create';
 
 export const SidebarData = [
     {
         title: "Home",
         icon: <HomeIcon />,
         link: "/",
+    },
+    {
+        title: "Cadastro",
+        icon: <CreateIcon />,
+        link: "/cadastro",
     },
     {
         title: "Apontamentos",
@@ -23,9 +29,9 @@ export const SidebarData = [
         link: "/followup",
     },
     {
-        title: "Arquivados",
+        title: "Arquivo",
         icon: <ArchiveIcon />,
-        link: "/arquivados",
+        link: "/arquivo",
     },
     {
         title: "Configurações",
