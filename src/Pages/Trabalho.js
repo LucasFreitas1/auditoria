@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col, Container, Form, Button } from 'react-bootstrap';
 
+
 function Trabalho() {
 
+  const [tipoTrabalho, setTipo] = useState("");
+  const [empresa, setEmpresa] = useState("");
+  const [nomeTrabalho, setNome] = useState("");
+  const [mesTrabalho, setMes] = useState(0);
+  const [anoTrabalho, setAno] = useState(0);
+
+  const displayInfo = () => {
+    console.log (tipoTrabalho + empresa + nomeTrabalho + mesTrabalho + anoTrabalho);
+  };
 
   return (
 
@@ -19,30 +29,37 @@ function Trabalho() {
         <Row className='selectForm'>
           <Col>
             <Form.Label>Tipo de trabalho</Form.Label>
-            <Form.Select size="sm" aria-label="Default select example">
+            <Form.Select size="sm" type="text"
+              onChange={(event) => {
+                setTipo(event.target.value);
+              }}>
               <option> </option>
-              <option value="1">Plano de Auditoria</option>
-              <option value="2">Diretoria</option>
-              <option value="3">Projeto</option>
-              <option value="4">CCI</option>
-              <option value="5">Adicional</option>
+              <option value="Plano de Auditoria">Plano de Auditoria</option>
+              <option value="Diretoria">Diretoria</option>
+              <option value="Projeto">Projeto</option>
+              <option value="CCI">CCI</option>
+              <option value="Adicional">Adicional</option>
             </Form.Select>
           </Col>
           <Col>
             <Form.Label>Empresa</Form.Label>
-            <Form.Select size="sm" aria-label="Default select example">
+            <Form.Select size="sm" type="text"
+              onChange={(event) => {
+                setEmpresa(event.target.value);
+              }}
+            >
               <option> </option>
-              <option value="1">Brasal Participações</option>
-              <option value="2">Brasal Incorporações</option>
-              <option value="3">Brasal Refrigerantes</option>
-              <option value="4">Brasal Veículos</option>
-              <option value="5">Brasal Combustíveis</option>
-              <option value="6">Brasal Energia</option>
-              <option value="7">Brasal Hotel</option>
-              <option value="8">Brasal Corretora</option>
-              <option value="9">Fazendas Brasal</option>
-              <option value="10">Instituto Brasal</option>
-              <option value="11">Outra</option>
+              <option value="Brasal Participações">Brasal Participações</option>
+              <option value="Brasal Incorporações">Brasal Incorporações</option>
+              <option value="Brasal Refrigerantes">Brasal Refrigerantes</option>
+              <option value="Brasal Veículos">Brasal Veículos</option>
+              <option value="Brasal Combustíveis">Brasal Combustíveis</option>
+              <option value="Brasal Energia">Brasal Energia</option>
+              <option value="Brasal Hotel">Brasal Hotel</option>
+              <option value="Brasal Corretora">Brasal Corretora</option>
+              <option value="Fazendas Brasal">Fazendas Brasal</option>
+              <option value="Instituto Brasal">Instituto Brasal</option>
+              <option value="Outra">Outra</option>
             </Form.Select>
           </Col>
         </Row>
@@ -50,7 +67,11 @@ function Trabalho() {
         <Row className='selectForm'>
           <Col>
             <Form.Label>Nome Trabalho</Form.Label>
-            <Form.Control size="sm" type="text" placeholder="Digite o nome" />
+            <Form.Control size="sm" type="text" placeholder="Digite o nome"
+              onChange={(event) => {
+                setNome(event.target.value);
+              }}
+            />
             <Form.Text className="text-muted">
               O nome do trabalho executado (Ex: Inventário, Análise de Caixa, Avaliação de Vendas)
             </Form.Text>
@@ -60,7 +81,11 @@ function Trabalho() {
         <Row className='selectForm'>
           <Form.Label>Mês e ano de início do trabalho</Form.Label>
           <Col>
-            <Form.Select size="sm" aria-label="Default select example">
+            <Form.Select size="sm" type="number"
+              onChange={(event) => {
+                setMes(event.target.value);
+              }}
+            >
               <option> </option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -80,12 +105,16 @@ function Trabalho() {
             </Form.Text>
           </Col>
           <Col>
-            <Form.Select size="sm" aria-label="Default select example">
+            <Form.Select size="sm" type="number"
+              onChange={(event) => {
+                setAno(event.target.value);
+              }}
+            >
               <option> </option>
-              <option value="1">2021</option>
-              <option value="2">2022</option>
-              <option value="3">2023</option>
-              <option value="4">2024</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
             </Form.Select>
             <Form.Text className="text-muted">
               Ano
@@ -96,7 +125,7 @@ function Trabalho() {
         <Row>
           <Col>
             <br />
-            <Button type="submit" value="Submit">Enviar</Button>
+            <Button type="submit" value="Submit" onClick={displayInfo}>Enviar</Button>
           </Col>
           <Col>
             {/*área vazia para botão ocupar espaço menor ou para incluir um segundo botão*/}
