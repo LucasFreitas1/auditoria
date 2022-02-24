@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row,Col,Container,Form} from 'react-bootstrap';
 
-function Cadastro() {
+function Trabalho() {
 
 
   return (
@@ -11,7 +11,7 @@ function Cadastro() {
     <div className='cadastro'>
      
        
-          <h2>Cadastro de apontamentos</h2>
+          <h2>Cadastro de trabalhos</h2>
         
         
           <Form.Select aria-label="Default select example">
@@ -28,4 +28,4 @@ function Cadastro() {
   );
 }
 
-export default Cadastro;
+export default Trabalho;
