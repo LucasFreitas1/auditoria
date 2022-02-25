@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col, Container, Form, Button } from 'react-bootstrap';
+import Axios from 'axios';
 
 
 function Trabalho() {
@@ -11,10 +12,22 @@ function Trabalho() {
   const [mesTrabalho, setMes] = useState(0);
   const [anoTrabalho, setAno] = useState(0);
 
-  const displayInfo = () => {
-    console.log (tipoTrabalho + empresa + nomeTrabalho + mesTrabalho + anoTrabalho);
+  const novoTrabalho = () => {
+    Axios.post('http://localhost:3001/criaTrabalho', {
+      tipoTrabalho: tipoTrabalho,
+      empresa: empresa,
+      nomeTrabalho: nomeTrabalho,
+      mesTrabalho: mesTrabalho,
+      anoTrabalho: anoTrabalho,
+    }).then(() => {
+      console.log("Ok");
+    })
   };
-
+  /* Dados sendo apresentados no log do console para visualização
+    const displayInfo = () => {
+      console.log (tipoTrabalho + empresa + nomeTrabalho + mesTrabalho + anoTrabalho);
+    };
+  */
   return (
 
 
@@ -125,7 +138,7 @@ function Trabalho() {
         <Row>
           <Col>
             <br />
-            <Button type="submit" value="Submit" onClick={displayInfo}>Enviar</Button>
+            <Button type="submit" value="Submit" onClick={novoTrabalho}>Enviar</Button>
           </Col>
           <Col>
             {/*área vazia para botão ocupar espaço menor ou para incluir um segundo botão*/}
