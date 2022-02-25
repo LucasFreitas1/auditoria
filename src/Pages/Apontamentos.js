@@ -7,12 +7,12 @@ function Apontamentos() {
   return (
     <div className='apontamentos'>
       <Col>
-      <h2>Listagem de apontamentos</h2>
+        <h2>Listagem de apontamentos</h2>
         <Row>
-          <br/>
+          <br />
         </Row>
         <Row>
-          
+
         </Row>
         <Row>
           <Form.Select aria-label="Default select example">

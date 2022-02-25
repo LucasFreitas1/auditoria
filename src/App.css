@@ -3,7 +3,9 @@
 }
 
 body {
-padding: 0;
+  height:100%;
+  padding: 0;
+  overflow: hidden;
 }
 .Sidebar{
   background-color: #353847;
@@ -84,4 +86,17 @@ font-family: Arial, Helvetica, sans-serif;
   text-align: left;
   justify-content: center;
   padding: 5px;
+}
+.botaoExibir{
+  justify-content: center;
+  width: 20%;
+}
+.border{
+  background-color: #f3ebff;
+  display: inline-block;
+}
+
+.tabela{
+  height: 400px;
+  overflow:auto;
 }
