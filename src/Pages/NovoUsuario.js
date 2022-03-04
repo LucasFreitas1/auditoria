@@ -1,42 +1,46 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col, Container, Form, Button, Table } from 'react-bootstrap';
+import '../App.css';
 import Axios from 'axios';
 import RefreshIcon from '@mui/icons-material/Refresh';
 
-function Trabalho() {
+function NovoUsuario() {
 
-  const [tipoTrabalho, setTipo] = useState("");
+ 
+  const [tipo_usuario, setTipo] = useState("");
   const [empresa, setEmpresa] = useState("");
-  const [nomeTrabalho, setNome] = useState("");
-  const [mesTrabalho, setMes] = useState(0);
-  const [anoTrabalho, setAno] = useState(0);
-  const [listaTrabalhos, setListaTrabalhos] = useState([])
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [area, setArea] = useState("");
+  const [senha, setSenha] = useState("");
+  const [listaUsuarios, setListaUsuarios] = useState([])
+  
 
-  const novoTrabalho = () => {
-    Axios.post('http://localhost:3001/criaTrabalho', {
-      tipoTrabalho: tipoTrabalho,
+  const novoUsuario = () => {
+    Axios.post('http://localhost:3001/criaUsuario', {
+      tipo_usuario: tipo_usuario,
       empresa: empresa,
-      nomeTrabalho: nomeTrabalho,
-      mesTrabalho: mesTrabalho,
-      anoTrabalho: anoTrabalho,
+      nome: nome,
+      area: area,
+      email: email,
+      senha: senha,
     }).then(() => {
       console.log("Ok");
-      alert("Cadastro feito!");
-    })
-  };
-
-  const getTrabalhos = () => {
-    Axios.get('http://localhost:3001/getTrabalhos').then((response) => {
-      setListaTrabalhos(response.data);
+      { alert("Cadastro feito!"); }
     })
   };
 
 
+  const getUsuarios = () => {
+    Axios.get('http://localhost:3001/getUsuarios').then((response) => {
+      setListaUsuarios(response.data);
+    })
+  };
+
+  /*Fim formulas trabalhos*/
 
   return (
-
-
     <div className='cadastro'>
       <Container>
         <Row>
@@ -45,23 +49,19 @@ function Trabalho() {
             <Form.Group>
               {/* Primeira linha com título */}
               <Row>
-                <h3>Cadastro de trabalhos</h3>
+                <h3>Cadastro de usuários</h3>
               </Row>
-              {/* Segunda linha com duas colunas para tipo de trabalho e empresa */}
+              {/* Segunda linha com duas colunas para tipo de usuário e empresa */}
               <Row className='selectForm'>
                 <Col>
-
-                  <Form.Label>Tipo de trabalho</Form.Label>
+                  <Form.Label>Tipo de usuário</Form.Label>
                   <Form.Select size="sm" type="text"
                     onChange={(event) => {
                       setTipo(event.target.value);
                     }}>
                     <option> </option>
-                    <option value="Plano de Auditoria">Planejado</option>
-                    <option value="Diretoria">Diretoria</option>
-                    <option value="Projeto">Projeto</option>
-                    <option value="CCI">CCI</option>
-                    <option value="Adicional">Adicional</option>
+                    <option value="Auditado">Auditado</option>
+                    <option value="Auditor">Auditor</option>
                   </Form.Select>
                 </Col>
                 <Col>
@@ -86,69 +86,47 @@ function Trabalho() {
                   </Form.Select>
                 </Col>
               </Row>
-              {/* Terceira linha  com nome do trabalho*/}
+              {/* Terceira linha com nome e sobrenome do usuário*/}
               <Row className='selectForm'>
                 <Col>
-                  <Form.Label>Nome Trabalho</Form.Label>
+                  <Form.Label>Nome</Form.Label>
                   <Form.Control size="sm" type="text" placeholder="Digite o nome"
                     onChange={(event) => {
                       setNome(event.target.value);
                     }}
                   />
                   <Form.Text className="text-muted">
-                    O nome do trabalho executado (Ex: Inventário, Análise de Caixa, Avaliação de Vendas)
+                    Nome e sobrenome do usuário
                   </Form.Text>
                 </Col>
               </Row>
-              {/* Quarta linha com Mês e Ano de início do trabalho*/}
+              {/* Quarta e-mail*/}
               <Row className='selectForm'>
-                <Form.Label>Mês e ano de início do trabalho</Form.Label>
                 <Col>
-                  <Form.Select size="sm" type="number"
+                  <Form.Label>E-mail</Form.Label>
+                  <Form.Control size="sm" type="text" placeholder="Digite o nome"
                     onChange={(event) => {
-                      setMes(event.target.value);
+                      setEmail(event.target.value);
                     }}
-                  >
-                    <option> </option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                  </Form.Select>
-                  <Form.Text className="text-muted">
-                    Mês
-                  </Form.Text>
-                </Col>
-                <Col>
-                  <Form.Select size="sm" type="number"
-                    onChange={(event) => {
-                      setAno(event.target.value);
-                    }}
-                  >
-                    <option> </option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                  </Form.Select>
-                  <Form.Text className="text-muted">
-                    Ano
-                  </Form.Text>
+                  />
                 </Col>
               </Row>
-              {/* Quinta linha com Botão de enviar*/}
+              {/* Quinta linha com área*/}
+              <Row className='selectForm'>
+                <Col>
+                  <Form.Label>Área</Form.Label>
+                  <Form.Control size="sm" type="text" placeholder="Digite o nome"
+                    onChange={(event) => {
+                      setArea(event.target.value);
+                    }}
+                  />
+                </Col>
+              </Row>
+              {/* Sexta linha com Botão de enviar*/}
               <Row>
                 <Col>
                   <br />
-                  <Button type="submit" value="Submit" onClick={novoTrabalho} variant="success">Enviar</Button>
+                  <Button type="submit" value="Submit" onClick={novoUsuario} variant="success">Enviar</Button>
                 </Col>
                 <Col>
                   {/*área vazia para botão ocupar espaço menor ou para incluir um segundo botão*/}
@@ -162,37 +140,37 @@ function Trabalho() {
           <Col md="8">
             {/*Primeira linha com título da listagem de trabalhos*/}
             <Row>
-              <h3>Lista de trabalhos</h3>
+              <h3>Lista de usuários</h3>
             </Row>
             <Row className="botaoExibir" >
-              <Button onClick={getTrabalhos}>
+              <Button onClick={getUsuarios}>
                 Carregar<RefreshIcon />
               </Button>
             </Row>
             <Row>
               <br />
             </Row>
-            {/*Tabela apresentando listagem de trabalhos  */}
+            {/*Tabela apresentando listagem de usuarios  */}
             <Row className="tabela">
               <Table size="sm" striped bordered hover >
                 <thead>
                   <tr>
-                    <th>ID</th>
+                    <th>E-mail</th>
+                    <th>Nome</th>
+                    <th>Área</th>
                     <th>Empresa</th>
-                    <th>Trabalho</th>
                     <th>Tipo</th>
-                    <th>Ano</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {listaTrabalhos.map((val, key) => {
+                  {listaUsuarios.map((val, key) => {
                     return (
                       <tr>
-                        <td>{val.id}</td>
+                        <td>{val.email}</td>
+                        <td>{val.nome}</td>
+                        <td>{val.area}</td>
                         <td>{val.empresa}</td>
-                        <td>{val.nomeTrabalho}</td>
-                        <td>{val.tipoTrabalho}</td>
-                        <td>{val.anoTrabalho}</td>
+                        <td>{val.tipo_usuario}</td>
                       </tr>
                     )
                   })}
@@ -204,8 +182,7 @@ function Trabalho() {
       </Container>
 
     </div >
-
   );
 }
 
-export default Trabalho;
+export default NovoUsuario;

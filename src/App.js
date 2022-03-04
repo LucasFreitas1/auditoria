@@ -11,6 +11,7 @@ import Followup from './Pages/Followup';
 import Arquivo from './Pages/Arquivo';
 import Configuracoes from './Pages/Configuracoes';
 import Logout from './Pages/Logout';
+import NovoUsuario from './Pages/NovoUsuario';
 
 function App() {
   return (
@@ -27,11 +28,15 @@ function App() {
                 <NavDropdown title="Cadastro" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/trabalho">Trabalho</NavDropdown.Item>
                   <NavDropdown.Item href="/cadastro">Apontamento</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">Usuário</NavDropdown.Item>
+                  <NavDropdown.Item href="/novousuario">Usuário</NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link href="/followup">Follow up</Nav.Link>
-                <Nav.Link  href="/arquivo">Arquivo</Nav.Link>
-                <Nav.Link  href="/configuracoes">Configurações</Nav.Link>
+                <Nav.Link href="/arquivo">Arquivo</Nav.Link>
+                <NavDropdown title="Configurações" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="/configuracoes">Configuracoes</NavDropdown.Item>
+                  <NavDropdown.Item href="/usuarios">Usuarios</NavDropdown.Item>
+                </NavDropdown>
+
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -48,6 +53,7 @@ function App() {
             <Route path="/configuracoes" element={<Configuracoes />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/trabalho" element={<Trabalho />} />
+            <Route path="/novousuario" element={<NovoUsuario />} />
           </Routes>
         </Router>
 
