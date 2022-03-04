@@ -27,7 +27,8 @@ function NovoUsuario() {
       senha: senha,
     }).then(() => {
       console.log("Ok");
-      { alert("Cadastro feito!"); }
+      alert("Cadastro feito!");
+      
     })
   };
 
@@ -143,7 +144,7 @@ function NovoUsuario() {
               <h3>Lista de usuários</h3>
             </Row>
             <Row className="botaoExibir" >
-              <Button onClick={getUsuarios}>
+              <Button size="sm" onClick={getUsuarios}>
                 Carregar<RefreshIcon />
               </Button>
             </Row>
