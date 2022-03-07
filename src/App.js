@@ -34,7 +34,7 @@ function App() {
                 <Nav.Link href="/arquivo">Arquivo</Nav.Link>
                 <NavDropdown title="Configurações" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/configuracoes">Configuracoes</NavDropdown.Item>
-                  <NavDropdown.Item href="/usuarios">Usuarios</NavDropdown.Item>
+                  <NavDropdown.Item href="/novousuario">Usuarios</NavDropdown.Item>
                 </NavDropdown>
 
               </Nav>
