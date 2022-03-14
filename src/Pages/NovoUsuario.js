@@ -122,6 +122,14 @@ function NovoUsuario() {
                     }}
                   />
                 </Col>
+                <Col>
+                  <Form.Label>Senha</Form.Label>
+                  <Form.Control size="sm" type="password" placeholder="Senha"
+                    onChange={(event) => {
+                      setArea(event.target.value);
+                    }}
+                  />
+                </Col>
               </Row>
               {/* Sexta linha com Botão de enviar*/}
               <Row>
