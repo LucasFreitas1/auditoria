@@ -7,7 +7,7 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 
 function NovoUsuario() {
 
- 
+
   const [tipo_usuario, setTipo] = useState("");
   const [empresa, setEmpresa] = useState("");
   const [nome, setNome] = useState("");
@@ -15,7 +15,7 @@ function NovoUsuario() {
   const [area, setArea] = useState("");
   const [senha, setSenha] = useState("");
   const [listaUsuarios, setListaUsuarios] = useState([])
-  
+
 
   const novoUsuario = () => {
     Axios.post('http://localhost:3001/criaUsuario', {
@@ -28,7 +28,7 @@ function NovoUsuario() {
     }).then(() => {
       console.log("Ok");
       alert("Cadastro feito!");
-      
+
     })
   };
 
